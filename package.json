@@ -1,0 +1,28 @@
+{
+  "name": "notas-app",
+  "version": "1.0.0",
+  "description": "Aplicativo de notas simples e produtivo com suporte a pop-ups e sincronização via e-mail",
+  "main": "index.html",
+  "scripts": {
+    "start": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "notas",
+    "notepad",
+    "bloco de notas",
+    "produtividade",
+    "popup",
+    "sincronização",
+    "vercel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^6.3.0",
+    "nodemailer": "^6.9.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas - Simples e Produtivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Tela de Login -->
+    <div id="loginScreen" class="screen active">
+        <div class="login-container">
+            <h1>📝 Notas</h1>
+            <p>Acesse suas notas de qualquer lugar</p>
+            <input type="email" id="emailInput" placeholder="Digite seu e-mail" required>
+            <button id="loginBtn" class="btn-primary">Entrar</button>
+            <p class="info-text">Suas notas serão salvas e sincronizadas com seu e-mail</p>
+        </div>
+    </div>
+
+    <!-- Aplicativo Principal -->
+    <div id="mainApp" class="screen">
+        <!-- Barra Superior -->
+        <header class="top-bar">
+            <div class="header-left">
+                <button id="toggleSidebarBtn" class="btn-icon" title="Mostrar/Ocultar notas (Ctrl+B)">☰</button>
+                <h2>Sem título</h2>
+                <span id="userEmail" class="user-email"></span>
+            </div>
+            <div class="header-right">
+                <button id="miniplayerBtn" class="btn-icon" title="Modo Miniplayer (Ctrl+M)">📌</button>
+                <button id="syncBtn" class="btn-icon" title="Sincronizar (Ctrl+E)">
+                    <span class="sync-icon">🔄</span>
+                </button>
+                <button id="themeToggle" class="btn-icon" title="Alternar tema">🌓</button>
+                <button id="logoutBtn" class="btn-icon" title="Sair">🚪</button>
+            </div>
+        </header>
+
+        <!-- Container Principal -->
+        <div class="main-container">
+            <!-- Barra Lateral - Lista de Notas -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <button id="newNoteBtn" class="btn-primary" title="Ctrl+N">
+                        ➕ Nova Nota
+                    </button>
+                </div>
+                <div class="notes-list" id="notesList">
+                    <!-- Notas serão inseridas aqui -->
+                </div>
+            </aside>
+
+            <!-- Editor de Notas -->
+            <main class="editor-container">
+                <div id="noNoteSelected" class="no-note">
+                    <p>Selecione uma nota ou crie uma nova</p>
+                    <p class="shortcut">Atalho: <kbd>Ctrl+N</kbd></p>
+                </div>
+                
+                <div id="noteEditor" class="note-editor hidden">
+                    <div class="editor-header">
+                        <input type="text" id="noteTitle" class="note-title" placeholder="Título da nota">
+                        <div class="editor-actions">
+                            <select id="fontSizeSelect" class="font-size-select">
+                                <option value="12">12px</option>
+                                <option value="14">14px</option>
+                                <option value="16" selected>16px</option>
+                                <option value="18">18px</option>
+                                <option value="20">20px</option>
+                                <option value="24">24px</option>
+                            </select>
+                            <button id="popupBtn" class="btn-secondary" title="Abrir em pop-up (Ctrl+Shift+P)">
+                                🗗 Pop-up
+                            </button>
+                            <button id="saveBtn" class="btn-secondary" title="Salvar (Ctrl+S)">
+                                💾 Salvar
+                            </button>
+                            <button id="deleteBtn" class="btn-danger" title="Excluir nota">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                    <textarea id="noteContent" class="note-content" placeholder="Comece a escrever..."></textarea>
+                    <div class="editor-footer">
+                        <span id="lastSaved" class="last-saved"></span>
+                        <span id="charCount" class="char-count">0 caracteres</span>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Status de Sincronização -->
+    <div id="statusBar" class="status-bar">
+        <span id="statusText"></span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
